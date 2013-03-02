@@ -10,13 +10,13 @@ application.
 Dependencies
 ============
 
-It works with gevent library. If you don't want that, feel free fork and remove
+It works with gevent library. If you don't want that, feel free to fork and remove
 the dependency.
 
 How to use it
 =============
 
-Let's say, you have 2 applications: SignalSender & SignalReceiver1 & SignalReceiver2.
+Let's say, you have 3 applications: SignalSender, SignalReceiver1 & SignalReceiver2.
 
 Let's also say that you want to route the signal "user-object-updated" to both the receivers.
 
@@ -32,6 +32,7 @@ Step 2
 In SignalSender, you execute this code at the startup:
 
 from qless_blinker.sender import route_signal
+
 route_signal( "user-object-updated", ["signal-receiver-1", "signal-receiver-2"])
 
 When you execute this code, this library will start listening for the signal
@@ -45,11 +46,13 @@ Step 3
 In SignalReceiver1, you execute this code at startup:
 
 from qless_blinker.receiver import listen_on_queue
+
 listen_on_queue( "signal-receiver-1")
 
 In SignalReceiver2, you execute this code at startup:
 
 from qless_blinker.receiver import listen_on_queue
+
 listen_on_queue( "signal-receiver-2")
 
 Done
