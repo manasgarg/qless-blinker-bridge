@@ -31,9 +31,8 @@ Step 2
 
 In SignalSender, you execute this code at the startup:
 
-from qless_blinker.sender import route_signal
-
-route_signal( "user-object-updated", ["signal-receiver-1", "signal-receiver-2"])
+  from qless_blinker.sender import route_signal
+  route_signal( "user-object-updated", ["signal-receiver-1", "signal-receiver-2"])
 
 When you execute this code, this library will start listening for the signal
 "user-object-updated" and whenever that signal is raised, it will put the
@@ -45,15 +44,13 @@ Step 3
 
 In SignalReceiver1, you execute this code at startup:
 
-from qless_blinker.receiver import listen_on_queue
-
-listen_on_queue( "signal-receiver-1")
+  from qless_blinker.receiver import listen_on_queue
+  listen_on_queue( "signal-receiver-1")
 
 In SignalReceiver2, you execute this code at startup:
 
-from qless_blinker.receiver import listen_on_queue
-
-listen_on_queue( "signal-receiver-2")
+  from qless_blinker.receiver import listen_on_queue
+  listen_on_queue( "signal-receiver-2")
 
 Done
 ====
